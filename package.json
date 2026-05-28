@@ -1,0 +1,17 @@
+{
+  "name": "playwright-api-framework",
+  "version": "1.0.0",
+  "description": "Production-ready API automation framework using Playwright and TypeScript",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "dotenv": "^16.4.0",
+    "typescript": "^5.6.3"
+  }
+}
