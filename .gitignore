@@ -19,3 +19,10 @@ Thumbs.db
 
 # Local Claude config
 .claude/
+.env
+env
+
+# Node / React
+node_modules/
+dist/
+.vite/
