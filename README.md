@@ -178,12 +178,15 @@ mindmap
 │
 ├── chapter_07_RAG/                Retrieval-Augmented Generation
 │   ├── RAG_Explorer.jpg
-│   └── Basic_RAG/
-│       ├── data/                  Source PDF (VWO PRD)
-│       └── rag-explorer/          React + Express RAG demo app
-│           ├── server/            Express API: pdf, chunk, embed, chroma, groq
-│           ├── src/               React UI (pipeline view, ingest, query)
-│           └── README.md
+│   ├── BASIC_RAG_N8N.jpg
+│   ├── Basic_RAG/
+│   │   ├── data/                  Source PDF (VWO PRD)
+│   │   └── rag-explorer/          React + Express RAG demo app
+│   │       ├── server/            Express API: pdf, chunk, embed, chroma, groq
+│   │       ├── src/               React UI (pipeline view, ingest, query)
+│   │       └── README.md
+│   └── n8n_BASIC_RAG/             No-code Basic RAG (n8n workflow)
+│       └── AI3X_Basic_RAG.json
 │
 ├── E2E_QA_Pipeline/               End-to-end AI QA pipeline blueprint
 │   └── E2E_QA_Pipeline.md         8-step flow: Jira -> plan -> cases -> automation -> run -> RCA
@@ -724,6 +727,18 @@ npm run dev               # starts ChromaDB + Express API + Vite UI
 ```
 
 Open the Vite URL (default `http://localhost:5175`), click **Ingest PDF**, then ask a question. See `chapter_07_RAG/Basic_RAG/rag-explorer/README.md` for the full walkthrough and troubleshooting.
+
+### Basic RAG in n8n (no-code)
+
+`chapter_07_RAG/n8n_BASIC_RAG/AI3X_Basic_RAG.json` is the same RAG idea built as a **no-code n8n workflow** — the pipeline without writing a backend.
+
+![Basic RAG in n8n](chapter_07_RAG/BASIC_RAG_N8N.jpg)
+
+**Two phases:**
+- **Phase 1 - Ingestion:** a form-submission trigger loads a text/PDF, a Recursive Character Text Splitter chunks it, OpenAI embeddings vectorise it, and the vectors land in a Pinecone vector store.
+- **Phase 2 - RAG Fetching:** a chat-message trigger drives a RAG Agent (gpt-5-mini brain + chat memory) that retrieves from Pinecone (via OpenAI embeddings) and answers grounded in the ingested docs.
+
+**Import + run:** open n8n, import `AI3X_Basic_RAG.json`, reconnect the OpenAI + Pinecone credentials, submit a document, then chat.
 
 ---
 
