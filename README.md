@@ -790,7 +790,11 @@ flowchart LR
     Q --> SR --> RRF[RRF fuse] --> RR[bge-reranker-v2-m3] --> L[Groq gpt-oss-120b] --> A[answer + citations]
 ```
 
+![Advanced RAG pipeline](chapter_07_RAG/Advanced-RAG-Pipeline.png)
+
 A standalone, animated **`Advanced_RAG_Explained.html`** teaches the whole concept (hybrid embeddings, RRF, reranking, rewriting) with diagrams — open it in any browser or upload it anywhere.
+
+![Advanced RAG explainer](chapter_07_RAG/Advanced-RAG-Explained.png)
 
 **Run it:**
 ```bash
