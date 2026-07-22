@@ -1,3 +1,4 @@
+
 # QABuddy.ai — Build Prompt (Advanced Hybrid RAG for QA Engineers)
 
 ## 1. Context & Role

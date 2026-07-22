@@ -24,3 +24,5 @@ data/09_prd_srs_brd_frd/*
 data/10_jenkins_logs/*
 !data/*/README.md
 !data/*/sample_*
+.vercel
+.env*

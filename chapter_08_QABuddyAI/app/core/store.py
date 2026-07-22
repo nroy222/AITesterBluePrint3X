@@ -91,6 +91,8 @@ class Store:
         return [{"id": str(p.id), "score": float(p.score), "payload": p.payload} for p in res]
 
     def sparse_search(self, sparse_vec, limit, source_types=None):
+        if not sparse_vec or not sparse_vec.get("indices"):
+            return []
         from qdrant_client import models
         q = models.SparseVector(indices=sparse_vec["indices"], values=sparse_vec["values"])
         res = self.client.query_points(C.COLLECTION, query=q, using="sparse",
